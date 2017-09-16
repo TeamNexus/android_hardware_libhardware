@@ -76,7 +76,10 @@ typedef enum {
 
     // Custom Lineage hints
     POWER_HINT_CPU_BOOST    = 0x00000110,
-    POWER_HINT_SET_PROFILE  = 0x00000111
+    POWER_HINT_SET_PROFILE  = 0x00000111,
+
+    // Custom NexusOS hints
+    POWER_HINT_DREAMING_OR_DOZING = 0x00000200,
 } power_hint_t;
 
 typedef enum {
@@ -274,6 +277,14 @@ typedef struct power_module {
      *     An operation is happening where it would be ideal for the CPU to
      *     be boosted for a specific duration. The data parameter is an
      *     integer value of the boost duration in microseconds.
+     *
+     * POWER_HINT_DREAMING_OR_DOZING
+     *
+     *     Indicates that the devices started to stopped dreaming/dozing.
+     *     The data parameter is non-zero if device just started to dream/doze
+     *     and zero if it just exited from one of these modes.
+     *     This may be used to lower the devices performance or shut down
+     *     some unrequired hardware (like lights, buttons, etc.)
      *
      * A particular platform may choose to ignore any hint.
      *
