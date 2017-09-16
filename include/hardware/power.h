@@ -50,6 +50,13 @@ __BEGIN_DECLS
 #define POWER_STATE_VOTER_NAME_MAX_LENGTH 100
 
 /*
+ * To support non-NexusOS power-modules, we'll identify
+ * ourselfes as NexusOS-ROM here. If this value is not
+ * set, don't build any of the NexusOS power-parts
+ */
+#define POWER_HAS_NEXUSOS_HINTS 1
+
+/*
  * Power hint identifiers passed to (*powerHint)
  */
 
